@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+</head>
+<body>
+    <h1>날씨 앱</h1>
+    <form action="/" method="post">
+        <label for="city">도시:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">날씨 조회</button>
+    </form>
+    {% if weather %}
+        <h2>{{ city }}의 현재 날씨</h2>
+        <p>날씨: {{ weather.description }}</p>
+        <p>온도: {{ weather.temperature }}°C</p>
+        <p>습도: {{ weather.humidity }}%</p>
+        <p>풍속: {{ weather.wind_speed }}m/s</p>
+    {% elif error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
